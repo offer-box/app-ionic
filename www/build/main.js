@@ -177,7 +177,7 @@ var HomePage = /** @class */ (function () {
     };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"/Users/matheuscatossi/eclipse-workspace/offer-box-ionic/src/pages/home/home.html"*/'<ion-header>\n	<ion-navbar>\n		<button ion-button menuToggle>\n		  <ion-icon name="menu"></ion-icon>\n		</button>\n		<ion-title>Home</ion-title>\n	</ion-navbar>\n</ion-header>\n	  \n<ion-content padding>\n    Homeeeee!\n</ion-content>\n	  '/*ion-inline-end:"/Users/matheuscatossi/eclipse-workspace/offer-box-ionic/src/pages/home/home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"/Users/matheuscatossi/eclipse-workspace/offer-box-ionic/src/pages/home/home.html"*/'<ion-header>\n	<ion-navbar>\n		<button ion-button menuToggle>\n		  <ion-icon name="menu"></ion-icon>\n		</button>\n		<ion-title>Home</ion-title>\n	</ion-navbar>\n</ion-header>\n	  \n<ion-content padding style="background-color:black;">\n	<img src="assets/imgs/logo.png" style="width:100%;display: block; margin: 0 auto;" />\n</ion-content>\n	  '/*ion-inline-end:"/Users/matheuscatossi/eclipse-workspace/offer-box-ionic/src/pages/home/home.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
@@ -260,6 +260,7 @@ var BiddingPage = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return InfoBiddingPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home_home__ = __webpack_require__(194);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -271,6 +272,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 var PageInterface = /** @class */ (function () {
     function PageInterface() {
     }
@@ -280,16 +282,35 @@ var PageInterface = /** @class */ (function () {
 var InfoBiddingPage = /** @class */ (function () {
     function InfoBiddingPage(navCtrl) {
         this.navCtrl = navCtrl;
+        this.pages = [{ title: 'Home', pageName: __WEBPACK_IMPORTED_MODULE_2__home_home__["a" /* HomePage */], icon: 'home' }];
     }
     InfoBiddingPage.prototype.ngOnInit = function () {
     };
+    InfoBiddingPage.prototype.compete = function () {
+        alert("Great! You're running. Soon you will receive news.");
+        this.openPage();
+    };
+    InfoBiddingPage.prototype.openPage = function () {
+        var page = this.pages[0];
+        var params = {};
+        if (page.index) {
+            params = { tabIndex: page.index };
+        }
+        if (this.navCtrl.getActiveChildNavs()[0] && page.index != undefined) {
+            this.navCtrl.getActiveChildNavs()[0].select(page.index);
+        }
+        else {
+            this.navCtrl.setRoot(page.pageName, params);
+        }
+    };
     InfoBiddingPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-info-bidding',template:/*ion-inline-start:"/Users/matheuscatossi/eclipse-workspace/offer-box-ionic/src/pages/info-bidding/info-bidding.html"*/'<ion-header>\n	<ion-navbar>\n		<button ion-button menuToggle>\n		  <ion-icon name="menu"></ion-icon>\n		</button>\n		<ion-title>Info Bidding</ion-title>\n	</ion-navbar>\n</ion-header>\n	  \n<ion-content class="card-background-page">\n\n	<img src="assets/imgs/light.png" style="width:40%;display: block; margin: 0 auto;" />\n\n	<h4 style="display: block; margin: 0 auto;">Light</h4>\n	\n  <ion-card>\n    <img src="assets/imgs/pdf.jpg"/>\n    <div class="card-title">Download Edital</div>\n    <div class="card-subtitle">100KB</div>\n  </ion-card>\n\n  <ion-card>\n    <img src="assets/imgs/pdf.jpg"/>\n    <div class="card-title">Download Edital 2</div>\n    <div class="card-subtitle">200KB</div>\n  </ion-card>\n\n  <ion-card>\n    <img src="assets/imgs/pdf.jpg"/>\n    <div class="card-title">Download Microentrepreneur</div>\n    <div class="card-subtitle">400KB</div>\n  </ion-card>\n\n</ion-content>\n	  '/*ion-inline-end:"/Users/matheuscatossi/eclipse-workspace/offer-box-ionic/src/pages/info-bidding/info-bidding.html"*/
+            selector: 'page-info-bidding',template:/*ion-inline-start:"/Users/matheuscatossi/eclipse-workspace/offer-box-ionic/src/pages/info-bidding/info-bidding.html"*/'<ion-header>\n	<ion-navbar>\n		<button ion-button menuToggle>\n		  <ion-icon name="menu"></ion-icon>\n		</button>\n		<ion-title>Info Bidding</ion-title>\n	</ion-navbar>\n</ion-header>\n	  \n<ion-content class="card-background-page">\n\n	<img src="assets/imgs/light.png" style="width:40%;display: block; margin: 0 auto;" />\n\n	<ion-grid>\n		<ion-row>\n			<ion-col col-5>\n				\n			</ion-col>\n			<ion-col col-6>\n				<h4>Light</h4>\n			</ion-col>\n		</ion-row>\n	</ion-grid>	\n\n	<ion-item>\n    <ion-input type="number" placeholder="Price for Unit"></ion-input>\n	</ion-item>\n\n  <ion-card>\n    <img src="assets/imgs/pdf.jpg"/>\n    <div class="card-title">Download Edital</div>\n    <div class="card-subtitle">100KB</div>\n  </ion-card>\n\n  <ion-card>\n    <img src="assets/imgs/pdf.jpg"/>\n    <div class="card-title">Download Edital 2</div>\n    <div class="card-subtitle">200KB</div>\n  </ion-card>\n\n  <ion-card>\n    <img src="assets/imgs/pdf.jpg"/>\n    <div class="card-title">Download Microentrepreneur</div>\n    <div class="card-subtitle">400KB</div>\n	</ion-card>\n	\n	\n	\n	<button ion-button round style="display: block; margin: 0 auto; margin-top: 20px;" (click)="compete();">Compete!</button>\n\n</ion-content>\n	  '/*ion-inline-end:"/Users/matheuscatossi/eclipse-workspace/offer-box-ionic/src/pages/info-bidding/info-bidding.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object])
     ], InfoBiddingPage);
     return InfoBiddingPage;
+    var _a;
 }());
 
 //# sourceMappingURL=info-bidding.js.map
