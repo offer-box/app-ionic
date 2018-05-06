@@ -1,0 +1,14 @@
+{
+  "name": "Blank Starter",
+  "baseref": "master",
+  "tarignore": [
+    ".sourcemaps",
+    "node_modules",
+    "package-lock.json",
+    "www"
+  ],
+  "scripts": {
+    "start": "ionic serve",
+    "test": "npm run build"
+  }
+}

@@ -1,0 +1,3 @@
+applications:
+- name: simple-toolchain-lab-activation
+  command: ionic serve
